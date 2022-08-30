@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianjin.frontLoaded.mapper.issued.IssuedEsamMapper">
+  <resultMap id="BaseResultMap" type="com.tianjin.frontLoaded.bean.model.issued.IssuedEsam">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="Info_id" jdbcType="VARCHAR" property="infoId" />
+    <result column="wait_id" jdbcType="VARCHAR" property="waitId" />
+    <result column="card_number" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="card_no" jdbcType="VARCHAR" property="cardNo" />
+    <result column="serial_no" jdbcType="VARCHAR" property="serialNo" />
+    <result column="obu_mac" jdbcType="VARCHAR" property="obuMac" />
+    <result column="issued_status" jdbcType="INTEGER" property="issuedStatus" />
+    <result column="issued_date" jdbcType="TIMESTAMP" property="issuedDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="esam_unique_no" jdbcType="VARCHAR" property="esamUniqueNo" />
+    <result column="key_code" jdbcType="INTEGER" property="keyCode" />
+    <result column="ic_key_code" jdbcType="INTEGER" property="icKeyCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, Info_id, wait_id, card_number, card_no, serial_no, obu_mac, issued_status, issued_date, 
+    create_time, user_id, esam_unique_no, key_code, ic_key_code
+  </sql>
+
+</mapper>

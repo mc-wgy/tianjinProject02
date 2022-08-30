@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianjin.frontLoaded.mapper.sys.SysRoleMapper">
+    <resultMap id="BaseResultMap" type="com.tianjin.frontLoaded.bean.model.sys.SysRole">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="last_update_by" jdbcType="VARCHAR" property="lastUpdateBy"/>
+        <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+        <result column="del_flag" jdbcType="TINYINT" property="delFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , `name`, remark, create_by, create_time, last_update_by, last_update_time, del_flag
+    </sql>
+    <select id="findRoleMenus" resultMap="com.tianjin.frontLoaded.mapper.sys.SysMenuMapper.BaseResultMap">
+        SELECT m.*
+        FROM sys_role_menu as rm
+                 LEFT JOIN sys_menu as m on rm.menu_id = m.id
+        where rm.role_id = #{roleId}
+    </select>
+
+</mapper>

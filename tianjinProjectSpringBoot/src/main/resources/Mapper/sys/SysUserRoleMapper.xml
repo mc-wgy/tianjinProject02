@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianjin.frontLoaded.mapper.sys.SysUserRoleMapper">
+    <resultMap id="BaseResultMap" type="com.tianjin.frontLoaded.bean.model.sys.SysUserRole">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="role_id" jdbcType="BIGINT" property="roleId"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="last_update_by" jdbcType="VARCHAR" property="lastUpdateBy"/>
+        <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , user_id, role_id, create_by, create_time, last_update_by, last_update_time
+    </sql>
+    <delete id="deleteByUserList">
+        delete from sys_user_role where user_id in
+        <foreach collection="sysUserList" item="sysUser" open="[" close="]" separator=",">
+            #{sysUser.id}
+        </foreach>
+    </delete>
+    <delete id="deleteByRoleList">
+        delete from sys_user_role where role_id in
+        <foreach collection="sysRoleList" item="sysRole" open="[" close="]" separator=",">
+            #{sysRole.id}
+        </foreach>
+    </delete>
+
+</mapper>
